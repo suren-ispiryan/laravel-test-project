@@ -21,5 +21,33 @@
         <a href="{{ url('/skill') }}">
             <button class="btn-primary">Create skills</button>
         </a>
+
+        <table>
+            <tr>
+              <th>Specializations</th>
+              <th>Skills</th>
+            </tr>
+            @foreach ($allSpecifications as $specification)
+                <tr>
+                    <td>
+                        <p> {{ $specification->specialization_eng }}</p>
+                        <p> {{ $specification->specialization_rus }}</p>
+                        <p> {{ $specification->specialization_arm }}</p>
+                    </td>
+                    <td>
+                        @foreach ($specification->skill as $skill)
+                            <p> {{ $skill->skill_eng }}</p>
+                            <p> {{ $skill->skill_rus }}</p>
+                            <p> {{ $skill->skill_arm }}</p>
+                        @endforeach
+                    </td>
+                    <td>
+                        <a href="{{ url('/delete/'.$specification->id) }}">
+                           <button class="btn btn-danger">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            @endforeach
+        </table>
     </body>
 </html>

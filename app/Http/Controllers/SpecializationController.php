@@ -22,4 +22,9 @@ class SpecializationController extends Controller
         }
         return abort(403);
     }
+
+    public function delete ($id) {
+        $deletedItem = Specialization::where('id', $id)->delete();
+        return back();
+    }
 }
