@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Specialization;
 use App\Models\Skill;
+use App\Http\Requests\CreateSkillRequest;
 
 class SkillsController extends Controller
 {
@@ -13,7 +14,7 @@ class SkillsController extends Controller
         return view('createSkill')->with('specializations', $specializations);
     }
 
-    public function createSkill (Request $request) {
+    public function createSkill (CreateSkillRequest $request) {
         $skill = Skill::create([
             'specialization_id' => $request->input('specializations'),
             'skill_eng' => $request->input('eng'),

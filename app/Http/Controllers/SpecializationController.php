@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Specialization;
+use App\Http\Requests\CreateSpecializationRequest;
 
 class SpecializationController extends Controller
 {
@@ -11,7 +12,7 @@ class SpecializationController extends Controller
         return view('createSpecialization');
     }
 
-    public function createSpecialization (Request $request) {
+    public function createSpecialization (CreateSpecializationRequest $request) {
         $specialization = Specialization::create([
             'specialization_eng' => $request->input('eng'),
             'specialization_rus' => $request->input('rus'),
