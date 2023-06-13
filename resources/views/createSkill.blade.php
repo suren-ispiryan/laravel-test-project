@@ -20,7 +20,7 @@
         </a>
         <form class="form" action="/create-skill" method="POST">
             @csrf
-            <label for="cars">Choose a car:</label>
+            <label for="cars">Choose a specialization:</label>
             <select name="specializations">
                  @foreach ($specializations as $specialization)
                     <option value={{ $specialization->id }}>{{ $specialization->specialization_eng }}</option>
