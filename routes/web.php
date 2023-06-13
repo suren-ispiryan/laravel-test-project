@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SpecializationController;
+use App\Http\Controllers\SkillsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('specialization', [SpecializationController::class, 'getSpecialization']);
+Route::post('create-specialization', [SpecializationController::class, 'createSpecialization']);
+Route::get('skill', [SkillsController::class, 'getSkill']);
+Route::post('create-skill', [SkillsController::class, 'createSkill']);
